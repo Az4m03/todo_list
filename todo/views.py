@@ -1,6 +1,8 @@
-from django.http import HttpResponse
 from django.shortcuts import render
+from django.views.generic import ListView
+from .models import Task
 
 
-def todoList(request):
-    return HttpResponse('Hello world!')
+class TodoList(ListView):
+    model = Task
+    context_object_name = 'tasks'
